@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devenir bénévole · Basma IYY</title>
+<meta name="description" content="Rejoignez Basma IYY comme bénévole : événements, logistique, communication, collecte, accompagnement, informatique.">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<!--
+  ==========================================================
+  BASMA IYY · Page "Devenir bénévole"
+  ==========================================================
+  Le formulaire ci-dessous utilise "Netlify Forms" : une fois le
+  site déposé sur Netlify, les réponses arrivent automatiquement
+  dans ton tableau de bord Netlify (onglet "Forms"), avec option
+  de recevoir un email à chaque nouvelle réponse. Gratuit, sans
+  aucun code serveur à écrire.
+
+  Ça ne fonctionne QUE une fois déployé sur Netlify (pas en
+  ouvrant simplement le fichier dans un navigateur).
+
+  À FAIRE plus tard : dans Netlify → Site settings → Forms →
+  Notifications, ajoute ton email pour être prévenu à chaque
+  nouvelle candidature.
+  ==========================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo Basma IYY" width="38" height="38"><span class="brand"><span class="brand-basma">Basma</span> <span class="brand-i">I</span><span class="brand-y1">Y</span><span class="brand-y2">Y</span></span></a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="main-nav">
+        <a href="index.html#association">L'association</a>
+        <a href="projets.html" class="nav-gold">Nos projets</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="benevole.html" class="btn btn-outline btn-small">Devenir bénévole</a>
+        <a href="don.html" class="btn btn-primary btn-small">Faire un don</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menu-toggle');
+    var panel = document.getElementById('nav-panel');
+    if (!toggle || !panel) return;
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Devenir bénévole</h1>
+    <p>Basma IYY avance grâce au temps que des bénévoles acceptent de donner, quelques heures ponctuelles ou un engagement régulier : chaque contribution compte.</p>
+  </div>
+</section>
+
+<section class="block" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Quels types de missions ?</h2>
+      <p>Selon ton temps disponible et ce que tu aimes faire.</p>
+    </div>
+    <div class="missions-grid">
+      <div class="mission-card">
+        <h3>Événements</h3>
+        <p>Aider à organiser et animer les journées de collecte, tournois, brocantes et weekends caritatifs.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Logistique</h3>
+        <p>Préparer, transporter et distribuer le matériel et les dons sur le terrain.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Communication</h3>
+        <p>Rédiger, photographier ou filmer les actions pour les réseaux sociaux et le site.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Collecte</h3>
+        <p>Participer aux campagnes de collecte de fonds, de vêtements ou de fournitures.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Accompagnement</h3>
+        <p>Être présent auprès des familles et des personnes suivies par l'association.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Informatique</h3>
+        <p>Aider à maintenir le site, les outils numériques ou la communication en ligne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0;">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Je souhaite aider</h2>
+      <p>Remplis ce formulaire, l'équipe de Basma IYY te recontacte rapidement.</p>
+    </div>
+
+    <!-- Formulaire Netlify : name="benevole" doit rester identique au
+         name de l'input caché "form-name" juste en dessous. -->
+    <form class="simple-form" name="benevole" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="benevole">
+      <p class="hidden-field">
+        <label>Ne pas remplir : <input name="bot-field"></label>
+      </p>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="nom">Nom et prénom</label>
+          <input id="nom" name="nom" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="telephone">Téléphone <span class="optional">(facultatif)</span></label>
+          <input id="telephone" name="telephone" type="tel">
+        </div>
+        <div class="field">
+          <label for="domaine">Domaine dans lequel je souhaite aider</label>
+          <select id="domaine" name="domaine">
+            <option>Événements</option>
+            <option>Logistique</option>
+            <option>Communication</option>
+            <option>Collecte</option>
+            <option>Accompagnement</option>
+            <option>Informatique</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="disponibilites">Disponibilités</label>
+        <textarea id="disponibilites" name="disponibilites" placeholder="Par exemple : les week-ends, un soir par semaine, ponctuellement..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+      <p class="form-note">Tes coordonnées ne servent qu'à te recontacter au sujet du bénévolat.</p>
+    </form>
+  </div>
+</section>
+
+<footer id="contact">
+  <noscript><div class="wrap"><p>Basma IYY ASBL · <a href="mailto:basmaiyy11@gmail.com">basmaiyy11@gmail.com</a> · 0488 02 80 19</p></div></noscript>
+</footer>
+
+<script src="js/footer.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "title": "Cantines solidaires",
+  "categorie": "Humanitaire",
+  "a_venir": false,
+  "afficher": true,
+  "ordre": 2,
+  "legende": "Distribution alimentaire",
+  "miniature": "/images/gaza_cantines.png",
+  "sous_titre": "",
+  "video": "https://www.tiktok.com/@basma_iyy/video/7501842723259829526",
+  "texte": "Dans les zones particulièrement touchées par l'insécurité alimentaire, Basma IYY soutient la préparation et la distribution de repas chauds nutritifs.\n\nCes cantines solidaires visent à apporter une réponse concrète et régulière à la faim dans les zones les plus en difficulté.",
+  "objectif": "Lutter contre la faim",
+  "beneficiaires": "À compléter",
+  "resultats": "À compléter",
+  "lien_boutique": false
+}

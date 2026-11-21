@@ -1,0 +1,16 @@
+{
+  "title": "Tissage de tapis",
+  "categorie": "Autonomie",
+  "a_venir": false,
+  "afficher": true,
+  "ordre": 4,
+  "legende": "Tissage de tapis",
+  "miniature": "/images/tissage_tapis.png",
+  "sous_titre": "Villages ruraux",
+  "video": "https://www.tiktok.com/@basma_iyy/video/7660499910596234529",
+  "texte": "Basma IYY accompagne des mères veuves de villages ruraux qui tissent à la main des tapis artisanaux.\n\nCes tapis sont valorisés et vendus, notamment aux enchères lors des événements de l'association, pour offrir à ces femmes un revenu direct et durable.",
+  "objectif": "Un revenu direct et durable",
+  "beneficiaires": "Mères veuves",
+  "resultats": "À compléter",
+  "lien_boutique": true
+}

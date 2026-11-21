@@ -1,0 +1,16 @@
+{
+  "title": "Cellule d'écoute psychologique",
+  "categorie": "Solidarité",
+  "a_venir": false,
+  "afficher": true,
+  "ordre": 10,
+  "legende": "Cellule d'écoute",
+  "miniature": "/images/ecoute.png",
+  "sous_titre": "",
+  "video": "https://www.instagram.com/p/DcCBIy7IL8j/",
+  "texte": "En partenariat avec des praticiens et psychologues spécialisés, Basma IYY a mis en place une cellule d'écoute à destination des enfants orphelins qu'elle accompagne.\n\nCet espace permet aux enfants d'exprimer ce qu'ils traversent et de recevoir un accompagnement adapté à leur deuil.",
+  "objectif": "Accompagner le deuil des enfants",
+  "beneficiaires": "Enfants orphelins",
+  "resultats": "À compléter",
+  "lien_boutique": false
+}

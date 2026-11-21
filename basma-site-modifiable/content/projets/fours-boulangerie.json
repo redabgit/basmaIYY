@@ -1,0 +1,16 @@
+{
+  "title": "Fours de boulangerie",
+  "categorie": "Autonomie",
+  "a_venir": false,
+  "afficher": true,
+  "ordre": 5,
+  "legende": "Fours de boulangerie",
+  "miniature": "/images/fours.png",
+  "sous_titre": "Financé par la collecte d'avril 2025",
+  "video": "https://www.instagram.com/reel/DQHgLLGDDp3/",
+  "texte": "Grâce aux fonds collectés lors du Weekend Caritatif d'avril 2025, Basma IYY a financé l'achat et la livraison de fours à pain et à pâtisserie.\n\nCes équipements permettent à des mères veuves de lancer une micro-activité de boulangerie à domicile, et donc un revenu régulier.",
+  "objectif": "Créer une activité génératrice de revenus",
+  "beneficiaires": "Mères veuves",
+  "resultats": "À compléter",
+  "lien_boutique": false
+}

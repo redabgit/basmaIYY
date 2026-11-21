@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basma IYY · Solidarité, éducation, entraide</title>
+<meta name="description" content="Basma IYY est une association qui parraine et accompagne des orphelins, et agit aux côtés des familles et des personnes en difficulté.">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<!--
+  ==========================================================
+  BASMA IYY · Site (étape 2 : plusieurs pages)
+  ==========================================================
+  Le site est maintenant organisé en petit dossier, pas un
+  fichier unique, pour pouvoir avoir plusieurs pages sans tout
+  dupliquer :
+
+    basma-iyy-site/
+    ├── index.html      (cette page : l'accueil)
+    ├── projets.html     (la page "Nos projets")
+    ├── css/style.css    (toute la mise en forme, partagée)
+    └── images/logo.png  (le logo, partagé aussi)
+
+  Comment le mettre en ligne (gratuit, avec Netlify) :
+  1. Va sur https://app.netlify.com/drop
+  2. Glisse-dépose le DOSSIER ENTIER (pas juste index.html)
+  3. Netlify te donne un lien public en quelques secondes
+
+  Ce qu'il reste à faire (commentaires "À FAIRE" dans le code) :
+  - Remplacer les blocs "photo à venir" par de vraies photos
+  - Remplacer les chiffres d'exemple par les vrais chiffres
+  - Adapter les textes si besoin
+  ==========================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Ajustements de mise en page (la mise en forme chaleureuse est dans css/style.css) */
+:root { --content-width: 1000px; }
+.wrap { width: min(var(--content-width), calc(100% - 36px)); margin-inline: auto; }
+.block .wrap { max-width: 820px; }
+.block-head { max-width: 680px; margin-inline: auto; }
+.stats .stats-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 700px; margin-inline: auto; }
+.stats .stat { min-width: 0; padding: 18px 12px; text-align: center; }
+.support-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+@media (max-width: 600px) {
+  .wrap { width: min(var(--content-width), calc(100% - 28px)); }
+  .stats .stats-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .support-actions { flex-direction: column; align-items: stretch; }
+}
+.shop-teaser { padding: 56px 0; }
+.shop-teaser-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+.shop-photos { display: flex; justify-content: center; gap: 14px; }
+.shop-photos img { width: 46%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; border: 5px solid var(--white); box-shadow: 0 12px 26px rgba(90, 40, 20, 0.22); }
+.shop-photos img:nth-child(1) { transform: rotate(-3deg); }
+.shop-photos img:nth-child(2) { transform: rotate(3deg); margin-top: 30px; }
+.shop-photos img:only-child { width: 66%; }
+.shop-teaser-text h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); margin-bottom: 12px; }
+.shop-teaser-text p { color: var(--ink-soft); }
+.shop-teaser-text p.kicker { color: var(--pink-dark); margin-bottom: 4px; }
+.shop-teaser-text .hero-ctas { margin-top: 22px; }
+@media (max-width: 760px) { .shop-teaser-inner { grid-template-columns: 1fr; gap: 28px; } .shop-photos img { width: 44%; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="#" class="logo"><img src="images/logo.png" alt="Logo Basma IYY" width="38" height="38"><span class="brand"><span class="brand-basma">Basma</span> <span class="brand-i">I</span><span class="brand-y1">Y</span><span class="brand-y2">Y</span></span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- À FAIRE plus tard : ces liens pointeront vers les vraies pages
+         (association.html, actions.html, ...) une fois qu'elles existeront.
+         Pour l'instant ils pointent vers les sections de cette même page. -->
+    <div class="nav-panel" id="nav-panel">
+      <nav class="main-nav">
+        <a href="#association">L'association</a>
+        <a href="projets.html" class="nav-gold">Nos projets</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="benevole.html" class="btn btn-outline btn-small">Devenir bénévole</a>
+        <a href="don.html" class="btn btn-primary btn-small">Faire un don</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Menu mobile : ouvre/ferme le panneau de navigation et referme
+  // automatiquement quand on clique un lien (pratique sur une page
+  // à une seule section comme celle-ci).
+  (function () {
+    var toggle = document.getElementById('menu-toggle');
+    var panel = document.getElementById('nav-panel');
+    if (!toggle || !panel) return;
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+<section class="hero hero--warm">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="kicker">Association née du cœur</p>
+      <h1><span class="w1">Aider.</span><span class="w2">Accompagner.</span><span class="w3">Rassembler.</span></h1>
+      <p>{{hero_texte}}</p>
+      <div class="hero-ctas">
+        <a href="#parrainage" class="btn btn-primary">Parrainer un orphelin</a>
+        <a href="projets.html" class="btn btn-outline">Découvrir nos projets</a>
+      </div>
+      <!-- Baromètre de dons : reste caché tant que data/dons.json n'a pas de vrais montants -->
+      <div class="hero-baro" data-barometre="global" data-label="Notre collecte en cours"></div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-video-frame">
+        <video controls playsinline poster="images/video-cover.jpg">
+          <source src="videos/video_principal.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="moments">
+  <div class="wrap">
+    <div class="block-head intro-heart">
+      <p class="kicker">Sur le terrain</p>
+      <h2>Quelques moments de nos actions</h2>
+    </div>
+    <div class="moments-grid">
+{{moments}}
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Quelques chiffres">
+  <div class="wrap stats-row">
+{{stats}}
+  </div>
+</section>
+
+<section class="sponsor" id="parrainage">
+  <div class="wrap sponsor-inner">
+    <svg class="sponsor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.3 2 4.5 5.6 4A5 5 0 0 1 12 7a5 5 0 0 1 6.4-3c3.6.5 5.2 4.3 3.6 7.8C19.5 16.4 12 21 12 21z"/></svg>
+    <div class="sponsor-text">
+      <h2>Parrainer un orphelin</h2>
+      <p>Au cœur de notre engagement : les enfants orphelins. Basma IYY les accompagne dans la durée, par le soutien scolaire, l'écoute et la présence de toute une communauté. Parrainer un orphelin, c'est faire partie de cette histoire.</p>
+    </div>
+    <div class="sponsor-actions">
+      <a href="#contact" class="btn btn-primary">Parrainer un orphelin</a>
+      <a href="projets.html#cat-education" class="btn btn-outline">Voir nos actions</a>
+    </div>
+  </div>
+</section>
+
+<section class="shop-teaser" aria-label="La boutique">
+  <div class="wrap shop-teaser-inner">
+    <div class="shop-photos">
+      <!-- Photos : images/tapis-01.jpg et images/tapis-02.jpg (les mêmes que dans la boutique) -->
+      <img src="images/tapis-01.jpg" alt="Tapis tissé à la main" loading="lazy" onerror="this.onerror=null;this.src='images/tissage_tapis.png'">
+      <img src="images/tapis-02.jpg" alt="Tapis tissé à la main" loading="lazy" onerror="this.remove()">
+    </div>
+    <div class="shop-teaser-text">
+      <p class="kicker">La boutique</p>
+      <h2>{{boutique_titre}}</h2>
+      <p>{{boutique_texte}}</p>
+      <div class="hero-ctas">
+        <a href="boutique.html" class="btn btn-primary">Découvrir la boutique</a>
+        <a href="projets/tissage-tapis.html" class="btn btn-outline">Voir le projet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="association">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Une association née du cœur</h2>
+      <p>Basma IYY est une association née du cœur, en mémoire d'êtres chers. Cet attachement s'est transformé en un engagement durable envers les autres, aujourd'hui actif en Belgique et à l'international.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="actions" style="padding-top:0;">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Nos actions</h2>
+      <p>Cinq façons d'agir, pensées pour répondre à des besoins réels.</p>
+    </div>
+    <div class="actions-list">
+      <div class="action-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.3 2 4.5 5.6 4A5 5 0 0 1 12 7a5 5 0 0 1 6.4-3c3.6.5 5.2 4.3 3.6 7.8C19.5 16.4 12 21 12 21z"/></svg>
+        <div class="action-body"><h3>Solidarité</h3>
+        <p class="action-desc">Parrainage d'orphelins, soutien aux veuves et aux femmes en difficulté, aide aux familles traversant des moments difficiles.</p></div>
+      </div>
+      <div class="action-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9.5 12 5l9 4.5-9 4.5-9-4.5Z"/><path d="M7 11.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4.5"/></svg>
+        <div class="action-body"><h3>Éducation</h3>
+        <p class="action-desc">Fournitures scolaires, accompagnement et soutien pour la réussite des enfants.</p></div>
+      </div>
+      <div class="action-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
+        <div class="action-body"><h3>Humanitaire</h3>
+        <p class="action-desc">Des actions d'urgence et de long terme, en Belgique et à l'international.</p></div>
+      </div>
+      <div class="action-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5.5"/></svg>
+        <div class="action-body"><h3>Autonomie</h3>
+        <p class="action-desc">Donner les moyens de reconstruire une activité et une indépendance durable.</p></div>
+      </div>
+      <div class="action-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2.5 19c.5-3 3-5 5.5-5s5 2 5.5 5M14.5 19c.3-2.1 1.8-3.7 3.6-4.2"/></svg>
+        <div class="action-body"><h3>Jeunesse &amp; communauté</h3>
+        <p class="action-desc">Des événements qui rassemblent bénévoles, familles et voisins.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block support" id="soutenir">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Participer</h2>
+      <p>Un don, du temps ou un partenariat : chaque forme d'aide compte.</p>
+    </div>
+    <div class="support-actions">
+      <a href="don.html" class="btn btn-primary">Faire un don</a>
+      <a href="benevole.html" class="btn btn-outline">Devenir bénévole</a>
+      <a href="index.html#contact" class="btn btn-outline">Devenir partenaire</a>
+    </div>
+  </div>
+</section>
+
+<section class="partners-quiet" aria-label="Partenaires">
+  <div class="wrap">
+    <p class="pq-title">Ils nous accompagnent</p>
+    <div class="pq-logos">
+      <img src="images/Loubna.png" alt="Loubna Luxe Event" loading="lazy">
+      <img src="images/tayba.png" alt="Tayba Travel" loading="lazy">
+      <img src="images/beyhan.png" alt="Beyhan" loading="lazy">
+      <img src="images/marocphone.png" alt="Maroc Phone" loading="lazy">
+      <img src="images/elegance.png" alt="Elegance Meubles" loading="lazy">
+      <img src="images/AM.png" alt="AM Carrelage" loading="lazy">
+      <span class="pq-name">Royaume Events</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <noscript><div class="wrap"><p>Basma IYY ASBL · <a href="mailto:basmaiyy11@gmail.com">basmaiyy11@gmail.com</a> · 0488 02 80 19</p></div></noscript>
+</footer>
+
+<script src="js/dons.js" defer></script>
+<script src="js/footer.js" defer></script>
+</body>
+</html>

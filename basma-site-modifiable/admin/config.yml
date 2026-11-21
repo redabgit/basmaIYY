@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: fr
+publish_mode: editorial_workflow   # une modification = brouillon -> à valider -> publiée
+media_folder: site/images
+public_folder: /images
+site_url: /
+display_url: /
+
+collections:
+
+  # ------------------------------------------------------------------ PROJETS
+  - name: projets
+    label: "Projets"
+    label_singular: "Projet"
+    folder: content/projets
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} ({{categorie}})"
+    sortable_fields: ["ordre", "title"]
+    fields:
+      - { name: title, label: "Titre du projet", widget: string }
+      - { name: categorie, label: "Catégorie", widget: select, options: ["Humanitaire", "Autonomie", "Éducation", "Solidarité"] }
+      - { name: afficher, label: "Afficher dans la page « Nos projets »", widget: boolean, default: true }
+      - { name: a_venir, label: "Projet « Prochainement » (pas encore lancé)", widget: boolean, default: false }
+      - { name: ordre, label: "Position dans la liste (1 = en premier)", widget: number, value_type: int, min: 1, default: 50 }
+      - { name: legende, label: "Titre court sur la vignette", widget: string, required: false }
+      - { name: miniature, label: "Photo de la vignette", widget: image, required: false, hint: "Idéalement une photo horizontale." }
+      - { name: sous_titre, label: "Petite phrase sous le titre (facultatif, sans nom de lieu)", widget: string, required: false }
+      - { name: video, label: "Lien de la vidéo (Instagram ou TikTok)", widget: string, required: false, hint: "Colle simplement le lien de la publication. Laisse vide si pas encore de vidéo." }
+      - { name: texte, label: "Description", widget: text, hint: "Sépare les paragraphes par une ligne vide." }
+      - { name: objectif, label: "Objectif", widget: string, required: false }
+      - { name: beneficiaires, label: "Bénéficiaires", widget: string, required: false }
+      - { name: resultats, label: "Résultats", widget: string, required: false }
+      - { name: lien_boutique, label: "Afficher le bouton « Découvrir les tapis à la boutique »", widget: boolean, default: false }
+
+  # ------------------------------------------------------------------ BOUTIQUE
+  - name: boutique
+    label: "Boutique"
+    label_singular: "Article"
+    folder: content/boutique
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nom
+    summary: "{{nom}} ({{categorie}})"
+    sortable_fields: ["ordre", "nom"]
+    fields:
+      - { name: nom, label: "Nom de l'article", widget: string }
+      - { name: categorie, label: "Rayon", widget: select, options: [{ label: "Tapis", value: tapis }, { label: "T-shirts", value: tshirts }, { label: "Sacs cabas", value: cabas }] }
+      - { name: photo, label: "Photo", widget: image, required: false }
+      - { name: description, label: "Description courte", widget: string, required: false }
+      - { name: prix, label: "Prix (facultatif, ex. 120 €)", widget: string, required: false }
+      - { name: ordre, label: "Position dans le rayon", widget: number, value_type: int, min: 1, default: 50 }
+
+  # ------------------------------------------------------------------ ÉVÉNEMENTS
+  - name: evenements
+    label: "Actualités & événements"
+    label_singular: "Événement"
+    folder: content/evenements
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    sortable_fields: ["ordre", "title"]
+    fields:
+      - { name: title, label: "Titre", widget: string }
+      - { name: legende, label: "Légende sur la vignette (ex. : Gala annuel · 13 septembre)", widget: string, required: false }
+      - { name: miniature, label: "Photo de la vignette", widget: image, required: false }
+      - { name: ordre, label: "Position dans la liste (1 = en premier)", widget: number, value_type: int, min: 1, default: 50 }
+      - { name: sous_titre, label: "Phrase sous le titre (lieu, horaires…)", widget: string, required: false }
+      - { name: video, label: "Lien de la vidéo Instagram", widget: string, required: false }
+      - { name: texte, label: "Description", widget: text, hint: "Sépare les paragraphes par une ligne vide." }
+      - { name: lieu, label: "Lieu", widget: string, required: false }
+      - { name: date, label: "Date", widget: string, required: false }
+      - { name: resultats, label: "Résultats", widget: string, required: false }
+
+  # ------------------------------------------------------------------ PAGES UNIQUES
+  - name: pages
+    label: "Accueil & collecte"
+    files:
+      - name: accueil
+        label: "Page d'accueil"
+        file: content/accueil.json
+        format: json
+        fields:
+          - { name: hero_texte, label: "Phrase d'introduction (en haut)", widget: text }
+          - name: moments
+            label: "Quelques moments de nos actions (photos cliquables)"
+            widget: list
+            summary: "{{fields.legende}}"
+            fields:
+              - { name: projet, label: "Projet lié", widget: relation, collection: projets, search_fields: ["title"], value_field: "{{slug}}", display_fields: ["title"] }
+              - { name: image, label: "Photo", widget: image }
+              - { name: legende, label: "Légende", widget: string, required: false }
+          - name: chiffres
+            label: "Chiffres clés"
+            widget: list
+            summary: "{{fields.chiffre}} {{fields.libelle}}"
+            fields:
+              - { name: chiffre, label: "Chiffre (ex. 50+)", widget: string }
+              - { name: libelle, label: "Texte (ex. orphelins accompagnés)", widget: string }
+          - { name: boutique_titre, label: "Boutique : titre", widget: string }
+          - { name: boutique_texte, label: "Boutique : texte", widget: text }
+
+      - name: dons
+        label: "Baromètre de collecte"
+        file: content/dons.json
+        format: json
+        fields:
+          - { name: maj, label: "Date de la dernière mise à jour", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+          - { name: global_collecte, label: "Total récolté (€) — laisse vide pour masquer le baromètre", widget: number, value_type: int, required: false }
+          - { name: global_objectif, label: "Objectif global (€, facultatif)", widget: number, value_type: int, required: false }
+          - name: projets
+            label: "Collecte par projet"
+            widget: list
+            required: false
+            summary: "{{fields.projet}} : {{fields.collecte}} €"
+            fields:
+              - { name: projet, label: "Projet", widget: relation, collection: projets, search_fields: ["title"], value_field: "{{slug}}", display_fields: ["title"] }
+              - { name: collecte, label: "Récolté (€)", widget: number, value_type: int, required: false }
+              - { name: objectif, label: "Objectif (€, facultatif)", widget: number, value_type: int, required: false }

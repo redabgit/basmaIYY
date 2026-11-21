@@ -1,0 +1,16 @@
+{
+  "title": "École des devoirs",
+  "categorie": "Éducation",
+  "a_venir": true,
+  "afficher": true,
+  "ordre": 9,
+  "legende": "École des devoirs",
+  "miniature": "/images/devoirs_belgique.png",
+  "sous_titre": "",
+  "video": "",
+  "texte": "En collaboration avec l'ASBL La Boussole, Basma IYY prépare le lancement d'une école des devoirs.\n\nCe projet vise à accompagner les enfants dans leur travail scolaire en dehors des heures de classe, avec le soutien de bénévoles.",
+  "objectif": "Accompagnement scolaire après l'école",
+  "beneficiaires": "À compléter",
+  "resultats": "Projet à venir",
+  "lien_boutique": false
+}

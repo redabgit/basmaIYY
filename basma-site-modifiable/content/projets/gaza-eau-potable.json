@@ -1,0 +1,16 @@
+{
+  "title": "Citerne d'eau potable",
+  "categorie": "Humanitaire",
+  "a_venir": false,
+  "afficher": true,
+  "ordre": 1,
+  "legende": "Distribution d'eau potable",
+  "miniature": "/images/gaza_eau_potable.png",
+  "sous_titre": "",
+  "video": "https://www.tiktok.com/@basma_iyy/video/7495824340479659286",
+  "texte": "Face à une crise humanitaire, Basma IYY a financé l'acheminement d'une citerne d'eau potable mobile.\n\nCette citerne permet de ravitailler en eau les familles déplacées, dans un contexte où l'accès à l'eau potable reste extrêmement limité.",
+  "objectif": "Accès à l'eau potable en situation de crise",
+  "beneficiaires": "Familles déplacées",
+  "resultats": "À compléter",
+  "lien_boutique": false
+}

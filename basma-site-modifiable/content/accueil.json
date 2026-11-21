@@ -1,0 +1,45 @@
+{
+  "hero_texte": "Basma IYY est une association qui agit aux côtés des familles, des enfants et des personnes en difficulté, en Belgique et à l'international.",
+  "chiffres": [
+    {
+      "chiffre": "50+",
+      "libelle": "orphelins accompagnés"
+    },
+    {
+      "chiffre": "10+",
+      "libelle": "projets réalisés"
+    },
+    {
+      "chiffre": "30+",
+      "libelle": "bénévoles engagés"
+    },
+    {
+      "chiffre": "3",
+      "libelle": "pays d'action"
+    }
+  ],
+  "moments": [
+    {
+      "projet": "rentree-scolaire-ouarzazate",
+      "image": "/images/cartables.png",
+      "legende": "Distribution de rentrée"
+    },
+    {
+      "projet": "gaza-cantines",
+      "image": "/images/gaza_cantines.png",
+      "legende": "Distribution alimentaire"
+    },
+    {
+      "projet": "tissage-tapis",
+      "image": "/images/tissage_tapis.png",
+      "legende": "Tissage de tapis"
+    },
+    {
+      "projet": "fours-boulangerie",
+      "image": "/images/fours.png",
+      "legende": "Fours de boulangerie"
+    }
+  ],
+  "boutique_titre": "Des tapis tissés à la main",
+  "boutique_texte": "Chaque tapis est tissé à la main par des mères veuves accompagnées par l'association. Les acheter, c'est leur offrir un revenu direct et durable."
+}

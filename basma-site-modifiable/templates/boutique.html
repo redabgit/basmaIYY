@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique · Basma IYY</title>
+<meta name="description" content="La boutique de Basma IYY : tapis artisanaux, t-shirts et sacs cabas.">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<!--
+  ==========================================================
+  BASMA IYY · Page "Boutique"
+  ==========================================================
+  Pour AJOUTER un produit : copie un bloc <article class="product-card">
+  (exemple ci-dessous, en commentaire) dans la bonne catégorie,
+  à l'intérieur de <div class="shop-grid">, puis modifie son contenu.
+  Pour SUPPRIMER la carte "Bientôt disponible" d'une catégorie : supprime
+  le bloc <article class="product-card"> qui la contient, une fois
+  que tu as ajouté de vrais produits.
+
+  Modèle de fiche produit :
+    <article class="product-card">
+      <div class="product-photo"><img src="images/mon-produit.jpg" alt="Nom du produit"></div>
+      <div class="product-body">
+        <h3>Nom du produit</h3>
+        <p>Courte description.</p>
+        <span class="product-price">25 €</span>
+      </div>
+    </article>
+
+  À FAIRE : choisir et décrire le moyen de commande (bloc "Comment commander"
+  en bas de page). Prévoir aussi les mentions de vente à distance
+  (conditions de vente, droit de rétractation de 14 jours) avant
+  d'ouvrir les commandes.
+  ==========================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo Basma IYY" width="38" height="38"><span class="brand"><span class="brand-basma">Basma</span> <span class="brand-i">I</span><span class="brand-y1">Y</span><span class="brand-y2">Y</span></span></a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <div class="nav-panel" id="nav-panel">
+      <nav class="main-nav">
+        <a href="index.html#association">L'association</a>
+        <a href="projets.html" class="nav-gold">Nos projets</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="benevole.html" class="btn btn-outline btn-small">Devenir bénévole</a>
+        <a href="don.html" class="btn btn-primary btn-small">Faire un don</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menu-toggle');
+    var panel = document.getElementById('nav-panel');
+    if (!toggle || !panel) return;
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>La boutique</h1>
+    <p>Tapis artisanaux, t-shirts et sacs cabas de Basma IYY.</p>
+  </div>
+</section>
+
+<section class="block" style="padding-bottom:0;">
+  <div class="wrap">
+
+    <div class="shop-category cat-tapis" id="tapis">
+      <div class="shop-head">
+        <h2>Tapis</h2>
+        <p>Tissés à la main par des mères veuves accompagnées par l'association. <a href="projets/tissage-tapis.html">Découvrir le projet</a></p>
+      </div>
+      <div class="shop-grid">
+{{grid_tapis}}
+      </div>
+    </div>
+
+    <div class="shop-category cat-tshirts" id="tshirts">
+      <div class="shop-head">
+        <h2>T-shirts</h2>
+      </div>
+      <div class="shop-grid">
+{{grid_tshirts}}
+      </div>
+    </div>
+
+    <div class="shop-category cat-cabas" id="cabas">
+      <div class="shop-head">
+        <h2>Sacs cabas</h2>
+      </div>
+      <div class="shop-grid">
+{{grid_cabas}}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="block" style="padding-top:0;">
+  <div class="wrap">
+    <!-- À FAIRE : remplacer ce texte par le vrai mode de commande
+         (formulaire, WhatsApp, e-mail, paiement en ligne...). -->
+    <div class="shop-order" id="commander">
+      <h2>Comment commander</h2>
+      <p>Les modalités de commande seront bientôt précisées ici. Pour toute question sur un produit, contactez-nous.</p>
+      <div class="shop-contact">
+        <a href="tel:+32488028019" class="btn btn-primary">0488 02 80 19</a>
+        <a href="mailto:basmaiyy11@gmail.com" class="btn btn-outline">basmaiyy11@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <noscript><div class="wrap"><p>Basma IYY ASBL · <a href="mailto:basmaiyy11@gmail.com">basmaiyy11@gmail.com</a> · 0488 02 80 19</p></div></noscript>
+</footer>
+
+<script src="js/footer.js" defer></script>
+</body>
+</html>
