@@ -14,7 +14,7 @@
   // ---------- À MODIFIER ICI ----------
   var PHONE_DISPLAY = '0466 47 52 23';
   var PHONE_LINK    = '+32466475223';
-  var EMAIL         = 'basmaiyy11@gmail.com';
+  var EMAIL         = 'basmaiyy1@gmail.com';
   var COMPANY_NO    = 'BE 1033.037.429';
   var QR_IMAGE      = 'images/qr-don.png';   // QR code de don (virement SEPA)
   var FACEBOOK      = 'https://www.facebook.com/iyy.basma';
